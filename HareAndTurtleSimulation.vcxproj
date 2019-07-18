@@ -19,7 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="app\src\BackGround.cpp" />
     <ClCompile Include="app\src\main.cpp" />
+    <ClCompile Include="app\src\Simulation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\src\BackGround.h" />
+    <ClInclude Include="app\src\Simulation.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
