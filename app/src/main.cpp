@@ -1,6 +1,7 @@
-#include <SFML/Graphics.hpp>
+#include "Simulation.h"
 
 int main(){
-	//Let's start! :)
-     return 0;
+	Simulation simulation(sf::Vector2u(1280,720),"Hare and Turtle simulation");
+	simulation.run();
+    return 0;
 }
