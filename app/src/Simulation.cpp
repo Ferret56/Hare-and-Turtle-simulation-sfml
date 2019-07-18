@@ -9,6 +9,7 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	this->mainWindowSize.x = main_window_size.x;
 	this->mainWindowSize.y = main_window_size.y;
 	this->mainWindow = new sf::RenderWindow(sf::VideoMode(main_window_size.x, main_window_size.y), full_simulation_name);
+	this->backGround = new BackGround("app/resources/img/background/background.png");
 }
 
 /*
@@ -16,6 +17,7 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 */
 Simulation::~Simulation() {
 	delete this->mainWindow;
+	delete this->backGround;
 }
 /*
 * This function handles all events
@@ -38,6 +40,7 @@ void Simulation::update() {
 */
 void Simulation::render() {
 	this->mainWindow->clear();
+	this->backGround->draw(mainWindow);
 	this->mainWindow->display();
 }
 /*
