@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app\src\BackGround.cpp" />
+    <ClCompile Include="app\src\Flag.cpp" />
     <ClCompile Include="app\src\main.cpp" />
     <ClCompile Include="app\src\Simulation.cpp" />
     <ClCompile Include="app\src\Track.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app\src\BackGround.h" />
+    <ClInclude Include="app\src\Flag.h" />
     <ClInclude Include="app\src\Simulation.h" />
     <ClInclude Include="app\src\Track.h" />
   </ItemGroup>
