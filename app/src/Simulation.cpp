@@ -10,10 +10,18 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	this->mainWindowSize.y = main_window_size.y;
 	this->mainWindow = new sf::RenderWindow(sf::VideoMode(main_window_size.x, main_window_size.y), full_simulation_name);
 	this->backGround = new BackGround("app/resources/img/background/background.png");
+
+	//Generate the animal's tracks//
 	tracks = {
 		 new Track(sf::Vector2f(0, 220),"app/resources/img/track/track.png"),
 		 new Track(sf::Vector2f(0, 420), "app/resources/img/track/track.png")
 	};
+
+	//Generate the finish flags on the animal's tracks//
+	for (Track* track : tracks)
+		track->setFinishFlag(new Flag(sf::Vector2f(track->getPosition().x + mainWindowSize.x-100,
+			                                        track->getPosition().y - 50),
+			                                        "app/resources/img/finish/flag.png"));
 }
 
 /*
@@ -48,8 +56,10 @@ void Simulation::update() {
 void Simulation::render() {
 	this->mainWindow->clear();
 	this->backGround->draw(mainWindow);
-	for (Track* track : tracks)
+	for (Track* track : tracks) {
 		track->draw(mainWindow);
+		track->getFinishFlag()->draw(mainWindow);
+	}
 	this->mainWindow->display();
 }
 /*
