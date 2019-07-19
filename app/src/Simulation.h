@@ -12,8 +12,7 @@ private:
 	sf::RenderWindow*    mainWindow;     
 	sf::Vector2u         mainWindowSize;
 	BackGround*          backGround;
-	Track*               turtleTrack;
-	Track*               hareTrack;
+	vector<Track*>       tracks;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();
