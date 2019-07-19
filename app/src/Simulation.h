@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "BackGround.h"
+#include "Track.h"
 using namespace std;
 /*
 The main class that will run the simulation 
@@ -11,6 +12,8 @@ private:
 	sf::RenderWindow*    mainWindow;     
 	sf::Vector2u         mainWindowSize;
 	BackGround*          backGround;
+	Track*               turtleTrack;
+	Track*               hareTrack;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();
