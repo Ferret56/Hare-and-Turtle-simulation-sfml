@@ -3,9 +3,6 @@
 #include <string>
 #include "BackGround.h"
 #include "Track.h"
-#include "Animal.h"
-#include "Turtle.h"
-#include "Hare.h"
 using namespace std;
 /*
 The main class that will run the simulation 
@@ -16,7 +13,6 @@ private:
 	sf::Vector2u         mainWindowSize;
 	BackGround*          backGround;
 	vector<Track*>       tracks;
-	vector <Animal*>     animals;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();

@@ -9,9 +9,6 @@ Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 	animalTexture->loadFromFile(path_to_the_file);
 	animalSprite->setTexture(*animalTexture);
 	animalSprite->setPosition(position);
-	dir = Directions::RIGHT;
-	currentFrame = 0;
-	speed = 0.5;
 }
 
 Animal::~Animal() {
