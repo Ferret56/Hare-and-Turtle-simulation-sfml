@@ -64,7 +64,11 @@ void Simulation::processEvents() {
 *This function updates the game logic
 */
 void Simulation::update() {
-
+	for (Animal* animal : animals) {
+		animal->getRandomMovement();
+		animal->animate(time);
+		animal->update(time);
+	}
 }
 /*
 * This function draws objects on the screen
@@ -76,8 +80,7 @@ void Simulation::render() {
 		track->draw(mainWindow);
 		track->getFinishFlag()->draw(mainWindow);
 	}
-	for (Animal* animal : animals) {
-		animal->animate(time);
+	for (Animal* animal : animals) {		
 		animal->draw(mainWindow);
 	}
 	this->mainWindow->display();
@@ -85,7 +88,7 @@ void Simulation::render() {
 /*
 * This function starts the simulation
 */
-void Simulation::run() {
+void Simulation::run() {	
 	while (this->mainWindow->isOpen()) {
 		processEvents();
 		update();
