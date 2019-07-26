@@ -15,13 +15,24 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	tracks = {
 		 new Track(sf::Vector2f(0, 220),"app/resources/img/track/track.png"),
 		 new Track(sf::Vector2f(0, 420), "app/resources/img/track/track.png")
-	};
-
+	};	
 	//Generate the finish flags on the animal's tracks//
 	for (Track* track : tracks)
 		track->setFinishFlag(new Flag(sf::Vector2f(track->getPosition().x + mainWindowSize.x-100,
 			                                        track->getPosition().y - 50),
 			                                        "app/resources/img/finish/flag.png"));
+	//Generate animals//
+	animals = {
+		new Turtle(sf::Vector2f(tracks[0]->getPosition().x - 10,
+								tracks[0]->getPosition().y - 10),
+								"app/resources/img/animals/turtle.png"),
+
+		new Hare(sf::Vector2f(tracks[1]->getPosition().x - 10,
+								tracks[1]->getPosition().y - 20),
+								"app/resources/img/animals/hare.png")       
+	};
+
+
 }
 
 /*
@@ -32,6 +43,8 @@ Simulation::~Simulation() {
 	delete this->backGround;
 	for (Track* track : tracks)
 		delete track;
+	for (Animal* animal : animals)
+		delete animal;
 
 }
 /*
@@ -59,6 +72,9 @@ void Simulation::render() {
 	for (Track* track : tracks) {
 		track->draw(mainWindow);
 		track->getFinishFlag()->draw(mainWindow);
+	}
+	for (Animal* animal : animals) {
+		animal->draw(mainWindow);
 	}
 	this->mainWindow->display();
 }

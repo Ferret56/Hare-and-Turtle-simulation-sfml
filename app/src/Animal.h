@@ -11,13 +11,13 @@ protected:
 	sf::Texture*                      animalTexture;
 	float                             dx;         // animal's offset
 	float                             speed;     // animal's speed
-	enum Directions{RIGHt,LEFT}       dir;      // animal's direction
+	enum Directions{RIGHT,LEFT}       dir;      // animal's direction
 
 	float                             currentFrame; // current frame image for the animation
 
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
-	~Animal();
+	virtual ~Animal();
 
 	void draw(sf::RenderWindow* mainRenderWindow);
 
