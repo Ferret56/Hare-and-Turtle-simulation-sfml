@@ -15,4 +15,7 @@ public:
 	*  @param  time   sfml library variable on which animation will depend
 	*/
 	virtual void animate(float time) override;
+
+	// Hare's random movement
+	virtual void getRandomMovement() override;
 };

@@ -16,4 +16,20 @@ void Turtle::animate(float time) {
 }
 
 
+// Turtle's random movement
+void Turtle::getRandomMovement() {
+	srand(time(NULL));
+	int rnd = rand() % 10 + 1;
+	if (rnd <= 5) {
+		dir = LEFT;
+		speed = 0.03;
+	}
+	else {
+		dir = RIGHT;
+		speed = 0.08;
+	}
+}
+
+
+
 
