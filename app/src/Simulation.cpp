@@ -52,6 +52,9 @@ Simulation::~Simulation() {
 */
 void Simulation::processEvents() {
 	sf::Event event;
+	time = clock.getElapsedTime().asMicroseconds();
+	clock.restart();
+	time /= 800;
 	while (this->mainWindow->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			this->mainWindow->close();
@@ -74,6 +77,7 @@ void Simulation::render() {
 		track->getFinishFlag()->draw(mainWindow);
 	}
 	for (Animal* animal : animals) {
+		animal->animate(time);
 		animal->draw(mainWindow);
 	}
 	this->mainWindow->display();

@@ -17,6 +17,9 @@ private:
 	BackGround*          backGround;
 	vector<Track*>       tracks;
 	vector <Animal*>     animals;
+
+	sf::Clock clock;     
+	float time;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();
