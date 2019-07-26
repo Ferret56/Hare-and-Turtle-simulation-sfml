@@ -9,6 +9,7 @@ class Animal {
 protected:
 	sf::Sprite*                       animalSprite;
 	sf::Texture*                      animalTexture;
+	sf::Vector2f                      position;
 	float                             dx;                // animal's offset
 	float                             speed;            // animal's speed
 	float                             animationSpeed;  // animal's animation speed
@@ -24,6 +25,12 @@ public:
 	*  @param  time   sfml library variable on which animation will depend
 	*/
 	virtual void animate(float time)=0;
+
+	//Animal's random movement
+	virtual void getRandomMovement()=0;
+
+	//Update Animal's logic
+	void update(float time);
 	void draw(sf::RenderWindow* mainRenderWindow);
 
 };

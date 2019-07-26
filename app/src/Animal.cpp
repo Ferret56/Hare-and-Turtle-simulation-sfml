@@ -6,9 +6,10 @@
 Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 	this->animalTexture = new sf::Texture();
 	this->animalSprite = new sf::Sprite();
+	this->position = position;
 	animalTexture->loadFromFile(path_to_the_file);
 	animalSprite->setTexture(*animalTexture);
-	animalSprite->setPosition(position);
+	animalSprite->setPosition(position);	
 	dx = 0;                   // must be redefined in children
 	dir = Directions::RIGHT;
 	currentFrame = 0;         
@@ -19,6 +20,26 @@ Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 Animal::~Animal() {
 	delete this->animalTexture;
 	delete this->animalSprite;
+}
+
+
+
+void Animal::update(float time) {
+	switch (dir) {
+	case RIGHT:
+		dx = speed;
+		break;
+
+	case LEFT:
+		dx = -speed;
+		break;
+	}
+
+	position.x += dx * time;
+	if (position.x < 0)
+		position.x = 0;
+
+	animalSprite->setPosition(position.x, position.y);
 }
 
 void Animal::draw(sf::RenderWindow* mainRenderWindow) {
