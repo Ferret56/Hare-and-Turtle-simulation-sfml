@@ -10,4 +10,10 @@ class Turtle : public Animal {
 public:
 	Turtle(sf::Vector2f position, const std::string path_to_the_file);
 	~Turtle();
+
+
+	/* Turtle's animation function
+	*  @param  time   sfml library variable on which animation will depend
+	*/
+	virtual void animate(float time) override;
 };
