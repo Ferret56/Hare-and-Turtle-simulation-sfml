@@ -14,9 +14,11 @@ protected:
 	sf::Sprite*    foodSprite;
 	sf::Texture*   foodTexture;
 	sf::Vector2f   foodPosition;
+	std::string    name;         //the name of the food('apple' for ex.)
 public:
-	Food(sf::Vector2f position, const std::string path_to_the_file);
+	Food(sf::Vector2f position, const std::string name, const std::string path_to_the_file);	
 	~Food();
 	void draw(sf::RenderWindow* mainRenderWindow);
+	std::string getname() const;
 };
 
