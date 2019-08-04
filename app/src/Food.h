@@ -11,9 +11,9 @@
 */
 class Food {
 protected:
-	sf::Sprite* foodSprite;
-	sf::Texture* foodTexture;
-	sf::Vector2f    foodPosition;
+	sf::Sprite*    foodSprite;
+	sf::Texture*   foodTexture;
+	sf::Vector2f   foodPosition;
 public:
 	Food(sf::Vector2f position, const std::string path_to_the_file);
 	~Food();
