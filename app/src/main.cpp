@@ -3,8 +3,8 @@
 #define MAX_RENDER_WINDOW_HEIGHT 720
 
 int main(){
-	Simulation simulation(sf::Vector2u(MAX_RENDER_WINDOW_WIDTH,MAX_RENDER_WINDOW_HEIGHT),
+         Simulation simulation(sf::Vector2u(MAX_RENDER_WINDOW_WIDTH,MAX_RENDER_WINDOW_HEIGHT),
 		                               "Hare and Turtle simulation");
-	simulation.run();
-    return 0;
+         simulation.run();
+         return 0;
 }
