@@ -33,9 +33,9 @@ void PackageOfFood::generateFood(Food* foodObj, Track* trackObj, unsigned int am
 
 	for (int i = 0; i < amount; ++i) {
 		current_food_position.x = rand() % ((int)trackObj
-		                                         ->getFinishFlag()
-		                                         ->getSprite()
-		                                         ->getPosition().x) - 50 + 100;
+		                                ->getFinishFlag()
+		                                ->getSprite()
+		                                ->getPosition().x) - 50 + 100;
 
 		packageOfFood[i] = new Food(current_food_position, foodObj->getName(),
 			                             foodObj->getAbsolutePathToTheFile());
