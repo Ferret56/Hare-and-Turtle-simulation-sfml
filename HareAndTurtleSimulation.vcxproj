@@ -25,6 +25,7 @@
     <ClCompile Include="app\src\Food.cpp" />
     <ClCompile Include="app\src\Hare.cpp" />
     <ClCompile Include="app\src\main.cpp" />
+    <ClCompile Include="app\src\PackageOfFood.cpp" />
     <ClCompile Include="app\src\Simulation.cpp" />
     <ClCompile Include="app\src\Track.cpp" />
     <ClCompile Include="app\src\Turtle.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="app\src\Flag.h" />
     <ClInclude Include="app\src\Food.h" />
     <ClInclude Include="app\src\Hare.h" />
+    <ClInclude Include="app\src\PackageOfFood.h" />
     <ClInclude Include="app\src\Simulation.h" />
     <ClInclude Include="app\src\Track.h" />
     <ClInclude Include="app\src\Turtle.h" />
