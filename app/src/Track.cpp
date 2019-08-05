@@ -11,6 +11,7 @@ Track::Track(const sf::Vector2f position, const std::string path_to_the_file) {
 	trackTexture->loadFromFile(path_to_the_file);
 	trackSprite->setTexture(*trackTexture);
 	trackSprite->setPosition(position);
+	this->trackPosition = position;
 }
 
 Track::~Track() {
