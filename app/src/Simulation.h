@@ -6,17 +6,19 @@
 #include "Animal.h"
 #include "Turtle.h"
 #include "Hare.h"
+#include "PackageOfFood.h"
 using namespace std;
 /*
 The main class that will run the simulation 
 */
 class Simulation {
 private:
-	sf::RenderWindow*    mainWindow;     
-	sf::Vector2u         mainWindowSize;
-	BackGround*          backGround;
-	vector<Track*>       tracks;
-	vector <Animal*>     animals;
+	sf::RenderWindow*       mainWindow;     
+	sf::Vector2u            mainWindowSize;
+	BackGround*             backGround;
+	vector<Track*>          tracks;
+	vector <Animal*>        animals;
+	vector<PackageOfFood*>  foodBasket;
 
 	sf::Clock clock;     
 	float time;

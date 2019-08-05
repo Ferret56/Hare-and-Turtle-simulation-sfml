@@ -1,4 +1,5 @@
 #include "Simulation.h"
+#include"PackageOfFood.h"
 #pragma once
 /*
 * Standart constructor for the Simulation class.
@@ -11,17 +12,17 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	this->mainWindow = new sf::RenderWindow(sf::VideoMode(main_window_size.x, main_window_size.y), full_simulation_name);
 	this->backGround = new BackGround("app/resources/img/background/background.png");
 
-	//Generate the animal's tracks//
+	//Generate the animal's tracks
 	tracks = {
 		 new Track(sf::Vector2f(0, 220),"app/resources/img/track/track.png"),
 		 new Track(sf::Vector2f(0, 420), "app/resources/img/track/track.png")
 	};	
-	//Generate the finish flags on the animal's tracks//
+	//Generate the finish flags on the animal's tracks
 	for (Track* track : tracks)
 		track->setFinishFlag(new Flag(sf::Vector2f(track->getPosition().x + mainWindowSize.x-100,
 			                                        track->getPosition().y - 50),
 			                                        "app/resources/img/finish/flag.png"));
-	//Generate animals//
+	//Generate animals
 	animals = {
 		new Turtle(sf::Vector2f(tracks[0]->getPosition().x - 10,
 								tracks[0]->getPosition().y - 10),
@@ -32,7 +33,14 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 								"app/resources/img/animals/hare.png")       
 	};
 
+	//Generate foodBasket
+	foodBasket = {
+		new PackageOfFood(new Food(sf::Vector2f(0, 0),"Apple", "app/resources/img/food/apple.png"),
+		                                                                              tracks[0], 3),
 
+        new PackageOfFood(new Food(sf::Vector2f(0, 0), "Carrot", "app/resources/img/food/carrot.png"),
+																					  tracks[1], 3)
+	};
 }
 
 /*
@@ -45,7 +53,8 @@ Simulation::~Simulation() {
 		delete track;
 	for (Animal* animal : animals)
 		delete animal;
-
+	for (PackageOfFood* packageOfFood :  foodBasket)
+		delete packageOfFood;
 }
 /*
 * This function handles all events
@@ -83,6 +92,10 @@ void Simulation::render() {
 	for (Animal* animal : animals) {		
 		animal->draw(mainWindow);
 	}
+
+	for (auto packageOfFood : foodBasket)
+		packageOfFood->draw(mainWindow);
+
 	this->mainWindow->display();
 }
 /*
