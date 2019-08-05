@@ -35,7 +35,7 @@ void PackageOfFood::generateFood(Food* foodObj, Track* trackObj, unsigned int am
 		                                ->getSprite()
 		                                ->getPosition().x) - 50 + 100;
 		packageOfFood[i] = new Food(current_food_position, foodObj->getName(),
-			                             foodObj->getAbsolutePathToTheFile());
+		                                 foodObj->getAbsolutePathToTheFile());
 	}		
 }
 
