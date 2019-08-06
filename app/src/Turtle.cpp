@@ -16,13 +16,14 @@ void Turtle::animate(float time) {
 	int rectangle_width = animalTexture->getSize().x / MAX_COUNT_OF_THE_FRAMES;
 	int rectangle_height = animalTexture->getSize().y;
 	animalSprite->setTextureRect(sf::IntRect(rectangle_width * int(currentFrame), 0,
-		                                        rectangle_width, rectangle_height));
+		                                      rectangle_width, rectangle_height));
 }
 
 
 // Turtle's random movement
 void Turtle::getRandomMovement() {
 	srand(time(NULL));
+	//generate random number from 1 to 10
 	int rnd = rand() % 10 + 1;
 	if (rnd <= 5) {
 		dir = LEFT;
