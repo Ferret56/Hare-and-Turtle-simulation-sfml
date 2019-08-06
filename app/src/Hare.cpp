@@ -20,7 +20,8 @@ void Hare::animate(float time) {
 }
 
 // Hare's random movement
-void Hare::getRandomMovement() {	
+void Hare::getRandomMovement() {
+	//generate random number from 1  to 10
 	int rnd = rand() % 10 + 1;
 	if (rnd <= 5) {
 		dir = LEFT;
