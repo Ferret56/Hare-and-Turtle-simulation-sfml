@@ -1,4 +1,5 @@
 #include "Turtle.h"
+#define MAX_COUNT_OF_THE_FRAMES 2
 
 Turtle::Turtle(sf::Vector2f position, const std::string path_to_the_file) : Animal(position, path_to_the_file){
 	animationSpeed = 0.005;
@@ -10,9 +11,12 @@ Turtle::~Turtle() {}
 */
 void Turtle::animate(float time) {
 	currentFrame += animationSpeed * time;
-	if (currentFrame > 2)
-		currentFrame -= 2;
-	animalSprite->setTextureRect(sf::IntRect(112 * int(currentFrame), 0, 112, 75));
+	if (currentFrame > MAX_COUNT_OF_THE_FRAMES)
+		currentFrame -= MAX_COUNT_OF_THE_FRAMES;
+	int rectangle_width = animalTexture->getSize().x / MAX_COUNT_OF_THE_FRAMES;
+	int rectangle_height = animalTexture->getSize().y;
+	animalSprite->setTextureRect(sf::IntRect(rectangle_width * int(currentFrame), 0,
+		                                        rectangle_width, rectangle_height));
 }
 
 
