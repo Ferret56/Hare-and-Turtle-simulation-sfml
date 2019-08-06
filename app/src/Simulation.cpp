@@ -37,7 +37,6 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	foodBasket = {
 		new PackageOfFood(new Food(sf::Vector2f(0, 0),"Apple", "app/resources/img/food/apple.png"),
 		                                                                              tracks[0], 3),
-
         new PackageOfFood(new Food(sf::Vector2f(0, 0), "Carrot", "app/resources/img/food/carrot.png"),
 																					  tracks[1], 3)
 	};
