@@ -29,7 +29,6 @@ void Animal::update(float time) {
 	case RIGHT:
 		dx = speed;
 		break;
-
 	case LEFT:
 		dx = -speed;
 		break;
