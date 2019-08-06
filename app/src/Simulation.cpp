@@ -25,12 +25,12 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	//Generate animals
 	animals = {
 		new Turtle(sf::Vector2f(tracks[0]->getPosition().x - 10,
-								tracks[0]->getPosition().y - 10),
-								"app/resources/img/animals/turtle.png"),
+							   tracks[0]->getPosition().y - 10),
+						"app/resources/img/animals/turtle.png"),
 
 		new Hare(sf::Vector2f(tracks[1]->getPosition().x - 10,
-								tracks[1]->getPosition().y - 20),
-								"app/resources/img/animals/hare.png")       
+							 tracks[1]->getPosition().y - 20),
+						"app/resources/img/animals/hare.png")       
 	};
 
 	//Generate foodBasket
