@@ -1,4 +1,5 @@
 #include "Hare.h"
+#define MAX_COUNT_OF_THE_FRAMES 8
 
 Hare::Hare(sf::Vector2f position, const std::string path_to_the_file) : Animal(position, path_to_the_file){
 	animationSpeed = 0.01;
@@ -10,9 +11,12 @@ Hare::~Hare(){}
 */
 void Hare::animate(float time) {
 	currentFrame += animationSpeed * time;
-	if (currentFrame > 8)
-		currentFrame -= 8;
-	animalSprite->setTextureRect(sf::IntRect(75 * int(currentFrame), 0, 75, 89));
+	if (currentFrame > MAX_COUNT_OF_THE_FRAMES)
+		currentFrame -= MAX_COUNT_OF_THE_FRAMES;
+	int rectangle_width = animalTexture->getSize().x / MAX_COUNT_OF_THE_FRAMES;
+	int rectangle_height = animalTexture->getSize().y;
+	animalSprite->setTextureRect(sf::IntRect(rectangle_width * int(currentFrame),0,
+		                                     rectangle_width, rectangle_height));
 }
 
 // Hare's random movement
