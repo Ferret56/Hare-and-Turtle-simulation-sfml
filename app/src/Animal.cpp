@@ -23,7 +23,7 @@ Animal::~Animal() {
 	delete this->animalSprite;
 }
 
-bool Animal::isBonusActive() const {
+bool Animal::getBonusStatus() const {
 	return this->isBonusActive;
 }
 

@@ -21,7 +21,7 @@ protected:
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
 	virtual ~Animal();
-	bool isBonusActive()const;
+	bool getBonusStatus()const;
 	void activateBonus(bool bonusStatus);
 
 	/* Animal animation function
