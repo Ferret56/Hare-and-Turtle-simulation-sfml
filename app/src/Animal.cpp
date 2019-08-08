@@ -15,12 +15,23 @@ Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 	currentFrame = 0;         
 	speed = 0.5;            // must be redefined in children
 	animationSpeed = 0;    // must be redefined in children
+	this->isBonusActive = false;
 }
 
 Animal::~Animal() {
 	delete this->animalTexture;
 	delete this->animalSprite;
 }
+
+bool Animal::isBonusActive() const {
+	return this->isBonusActive;
+}
+
+void Animal::activateBonus(bool bonusStatus) {
+	this->isBonusActive = bonusStatus;
+}
+
+
 
 
 

@@ -10,16 +10,19 @@ protected:
 	sf::Sprite*                       animalSprite;
 	sf::Texture*                      animalTexture;
 	sf::Vector2f                      position;
-	float                             dx;                // animal's offset
-	float                             speed;            // animal's speed
-	float                             animationSpeed;  // animal's animation speed
-	enum Directions{RIGHT,LEFT}       dir;            // animal's direction
+	float                             dx;                   // animal's offset
+	float                             speed;               // animal's speed
+	float                             animationSpeed;     // animal's animation speed
+	enum Directions{RIGHT,LEFT}       dir;               // animal's direction
 
-	float                             currentFrame; // current frame image for the animation
+	float                             currentFrame;     // current frame image for the animation
+	bool                              isBonusActive;   // current status of the bonus
 
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
 	virtual ~Animal();
+	bool isBonusActive()const;
+	void activateBonus(bool bonusStatus);
 
 	/* Animal animation function
 	*  @param  time   sfml library variable on which animation will depend
