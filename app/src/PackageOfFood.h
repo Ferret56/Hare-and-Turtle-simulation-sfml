@@ -7,6 +7,7 @@
 * This class represents a package of several types of food
 * A package of food (several pieces) is on a certain animal's path
 */
+//start!
 class PackageOfFood{
 private:
 	//std::map of several types of food
