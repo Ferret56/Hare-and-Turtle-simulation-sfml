@@ -38,6 +38,13 @@ void PackageOfFood::generateFood(Food* foodObj, Track* trackObj, unsigned int am
 		                                 foodObj->getAbsolutePathToTheFile());
 	}		
 }
+/*
+	* @return std::map of the packageOfFood
+*/
+std::map<unsigned int, Food*>* PackageOfFood::getMapFood() {
+	return &this->packageOfFood;
+}
+
 
 void PackageOfFood::draw(sf::RenderWindow* window) {
 	for (auto food : packageOfFood)

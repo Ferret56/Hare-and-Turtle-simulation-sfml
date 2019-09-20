@@ -37,6 +37,10 @@ public:
 	* @param     amount      is the amount of food we want to generate
 	*/
 	void generateFood(Food* foodObj, Track* trackObj, unsigned int amount);
+	/*
+	* @return std::map of the packageOfFood
+	*/
+	std::map<unsigned int, Food*>* getMapFood();
 	void draw(sf::RenderWindow* window);
 	
 
