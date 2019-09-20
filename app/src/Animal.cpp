@@ -1,4 +1,5 @@
 #include "Animal.h"
+#define BONUS_TIME 500.
 /*
 * @param  position            animal's position on the track
 * @param  path_to_the_file    is the path to the file where the picture is
@@ -15,6 +16,8 @@ Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 	currentFrame = 0;         
 	speed = 0.5;            // must be redefined in children
 	animationSpeed = 0;    // must be redefined in children
+	currentBonusTime = 0;
+	totalBonusTime = 0;
 	this->isBonusActive = false;
 }
 
@@ -29,7 +32,26 @@ bool Animal::getBonusStatus() const {
 
 void Animal::activateBonus(bool bonusStatus) {
 	this->isBonusActive = bonusStatus;
+	if (isBonusActive) {
+		totalBonusTime += BONUS_TIME - currentBonusTime;
+		currentBonusTime = 0;
+		dir = RIGHT;
+		speed = 0.20;
+	}
+	else {
+		currentBonusTime = 0;
+		totalBonusTime = 0;
+	}
 }
+void Animal::increaseCurrentBonusTime(float time) {
+	this->currentBonusTime += time;
+}
+
+float Animal::getCurrentBonusTime() { return this->currentBonusTime; }
+
+float Animal::getTotalBonusTime() { return this->totalBonusTime; }
+
+
 /*
 	* @return a logical expression depending on whethere the animal has eaten food
 	* @return TRUE if the animal ate food.
