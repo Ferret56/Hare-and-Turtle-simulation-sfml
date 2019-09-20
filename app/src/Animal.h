@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include<String>
+#include "PackageOfFood.h"
 /*
 * This is an abstract class that represents an animal
 * Some methods will be redefined in descendant classes
@@ -23,6 +24,13 @@ public:
 	virtual ~Animal();
 	bool getBonusStatus()const;
 	void activateBonus(bool bonusStatus);
+/*
+	* @return a logical expression depending on whethere the animal has eaten food
+	* @return TRUE if the animal ate food.
+	* @param packageOfFood is the all packages of the food in the simulation
+	* WARN! Ñhange architecture. Bad implementation
+*/
+	bool isEatFood(std::vector<PackageOfFood*>* packageOfFood);
 
 	/* Animal animation function
 	*  @param  time   sfml library variable on which animation will depend

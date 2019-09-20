@@ -30,21 +30,38 @@ bool Animal::getBonusStatus() const {
 void Animal::activateBonus(bool bonusStatus) {
 	this->isBonusActive = bonusStatus;
 }
-
-
-
-
+/*
+	* @return a logical expression depending on whethere the animal has eaten food
+	* @return TRUE if the animal ate food.
+	* @param packageOfFood is the all packages of the food in the simulation
+	* WARN! Ñhange architecture.Bad implementation
+*/
+bool Animal::isEatFood(std::vector<PackageOfFood*>* packageOfFood) {
+	for (int i(0); i < packageOfFood->size(); ++i) {
+		std::map<unsigned int, Food*>::iterator mapIt = (*packageOfFood).at(i)->getMapFood()->begin(); // map food iterator
+		for (; mapIt != (*packageOfFood).at(i)->getMapFood()->end(); ++mapIt) {
+			if (this->animalSprite->getGlobalBounds().intersects((*mapIt).second->getSprite().getGlobalBounds())) {
+				  // remove the food from the map that was eaten
+			     //                    WARN!
+				//              Bad implementation
+				delete (*mapIt).second;
+				(*packageOfFood).at(i)->getMapFood()->erase((*mapIt).first);
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
 void Animal::update(float time) {
 	switch (dir) {
-	case RIGHT:
-		dx = speed;
-		break;
-	case LEFT:
-		dx = -speed;
-		break;
+	     case RIGHT:
+		     dx = speed;
+		     break;
+	     case LEFT:
+		     dx = -speed;
+		     break;
 	}
-
 	position.x += dx * time;
 	if (position.x < 0)
 		position.x = 0;
