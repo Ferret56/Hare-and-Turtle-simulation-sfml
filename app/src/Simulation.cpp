@@ -82,13 +82,16 @@ void Simulation::processEvents() {
 	}
 }
 /*
-*This function updates the game logic
+* This function updates the game logic
 */
 void Simulation::update() {
 	for (Animal* animal : animals) {
 		animal->getRandomMovement();
 		animal->animate(time);
 		animal->update(time);
+		if (animal->isEatFood(&this->foodBasket)) {
+			//TODO bonus logic
+		}
 	}
 }
 /*
