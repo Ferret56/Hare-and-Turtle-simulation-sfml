@@ -86,12 +86,20 @@ void Simulation::processEvents() {
 */
 void Simulation::update() {
 	for (Animal* animal : animals) {
-		animal->getRandomMovement();
+		if (animal->isEatFood(&this->foodBasket)) {
+			animal->activateBonus(true);
+		}
+		if (animal->getBonusStatus()) {
+			animal->increaseCurrentBonusTime(time);
+			if (animal->getCurrentBonusTime() >= animal->getTotalBonusTime())
+				animal->activateBonus(false);
+		}
+
+		if(animal->getBonusStatus() == false)
+		          animal->getRandomMovement();
 		animal->animate(time);
 		animal->update(time);
-		if (animal->isEatFood(&this->foodBasket)) {
-			//TODO bonus logic
-		}
+		
 	}
 }
 /*
