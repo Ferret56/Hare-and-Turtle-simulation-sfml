@@ -18,8 +18,8 @@ protected:
 
 	float                             currentFrame;         // current frame image for the animation
 	bool                              isBonusActive;       // current status of the bonus
-	float                             totalBonusTime;   // bonus time
-	float                             currentBonusTime;// current time
+	float                             totalBonusTime;     // bonus time
+	float                             currentBonusTime;  // current time
 
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
