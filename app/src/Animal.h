@@ -25,6 +25,7 @@ protected:
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
 	virtual ~Animal();
+	sf::Sprite* getSprite();
 	bool getBonusStatus()const;
 	void setWinStatus(bool isWin);
 	void activateBonus(bool bonusStatus);

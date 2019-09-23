@@ -27,6 +27,9 @@ Animal::~Animal() {
 	delete this->animalSprite;
 }
 
+sf::Sprite* Animal::getSprite() { return this->animalSprite; }
+
+
 bool Animal::getBonusStatus() const {
 	return this->isBonusActive;
 }
