@@ -88,6 +88,11 @@ void Simulation::processEvents() {
 */
 void Simulation::update() {
 	for (Animal* animal : animals) {
+		if (animal->getSprite()->getPosition().x >= tracks[0]->getFinishFlag()->getSprite()->getPosition().x) {
+			animal->setWinStatus(true);
+			this->isTheRaceWin = true;
+		}
+
 		if (animal->isEatFood(&this->foodBasket)) {
 			animal->activateBonus(true);
 		}
@@ -108,21 +113,22 @@ void Simulation::update() {
 * This function draws objects on the screen
 */
 void Simulation::render() {
-	this->mainWindow->clear();
-	this->backGround->draw(mainWindow);
-	for (Track* track : tracks) {
-		track->draw(mainWindow);
-		track->getFinishFlag()->draw(mainWindow);
-	}
-	for (Animal* animal : animals) {		
-		animal->draw(mainWindow);
+		this->mainWindow->clear();
+		this->backGround->draw(mainWindow);
+		for (Track* track : tracks) {
+			track->draw(mainWindow);
+			track->getFinishFlag()->draw(mainWindow);
+		}
+		for (Animal* animal : animals) {
+			animal->draw(mainWindow);
+		}
+
+		for (auto packageOfFood : foodBasket)
+			packageOfFood->draw(mainWindow);
+
+		this->mainWindow->display();
 	}
 
-	for (auto packageOfFood : foodBasket)
-		packageOfFood->draw(mainWindow);
-
-	this->mainWindow->display();
-}
 /*
 * This function starts the simulation
 */
