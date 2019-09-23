@@ -20,6 +20,8 @@ private:
 	vector <Animal*>        animals;
 	vector<PackageOfFood*>  foodBasket;
 
+	bool                    isTheSimulationStart;
+	bool                    isTheRaceWin;
 	sf::Clock clock;     
 	float time;
 public:

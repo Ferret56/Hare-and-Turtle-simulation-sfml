@@ -19,6 +19,8 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	this->mainWindowSize.y = main_window_size.y;
 	this->mainWindow = new sf::RenderWindow(sf::VideoMode(main_window_size.x, main_window_size.y), full_simulation_name);
 	this->backGround = new BackGround(BACKGROUND_IMAGE_PATH);
+	this->isTheSimulationStart = false;
+	this->isTheRaceWin = false;
 
 	//Generate the animal's tracks
 	tracks = {
@@ -56,7 +58,7 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 }
 
 /*
-* Standart constructor for the Simulation class
+* Standart destructor for the Simulation class
 */
 Simulation::~Simulation() {
 	delete this->mainWindow;
