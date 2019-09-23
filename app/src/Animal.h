@@ -20,6 +20,7 @@ protected:
 	bool                              isBonusActive;       // current status of the bonus
 	float                             totalBonusTime;     // bonus time
 	float                             currentBonusTime;  // current time
+	bool                              isAnimalWin;      // current win status
 
 public:
 	Animal(sf::Vector2f position, const std::string path_to_the_file);
@@ -36,6 +37,7 @@ public:
 	* WARN! Ñhange architecture. Bad implementation
 */
 	bool isEatFood(std::vector<PackageOfFood*>* packageOfFood);
+	bool isWin();
 
 	/* Animal animation function
 	*  @param  time   sfml library variable on which animation will depend

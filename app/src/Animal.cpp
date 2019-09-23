@@ -19,6 +19,7 @@ Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
 	currentBonusTime = 0;
 	totalBonusTime = 0;
 	this->isBonusActive = false;
+	this->isAnimalWin = false;
 }
 
 Animal::~Animal() {
@@ -74,6 +75,9 @@ bool Animal::isEatFood(std::vector<PackageOfFood*>* packageOfFood) {
 	}
 	return false;
 }
+
+bool Animal::isWin() { return this->isAnimalWin; }
+
 
 void Animal::update(float time) {
 	switch (dir) {
