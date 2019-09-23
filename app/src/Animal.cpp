@@ -31,6 +31,9 @@ bool Animal::getBonusStatus() const {
 	return this->isBonusActive;
 }
 
+void Animal::setWinStatus(bool isWin) { this->isAnimalWin = isWin; }
+
+
 void Animal::activateBonus(bool bonusStatus) {
 	this->isBonusActive = bonusStatus;
 	if (isBonusActive) {
