@@ -55,6 +55,10 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 					 CARROT_IMAGE_PATH),
 					 tracks[1], 3)
 	};
+	
+	//Generate main text
+	mainMessage = new Message("Hare and Turtle simulation", "app/resources/fonts/TSSSF.otf", 60);
+	mainMessage->setPosition(mainWindow->getPosition().x, mainWindow->getPosition().y + 130);
 }
 
 /*
@@ -63,6 +67,7 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 Simulation::~Simulation() {
 	delete this->mainWindow;
 	delete this->backGround;
+	delete this->mainMessage;
 	for (Track* track : tracks)
 		delete track;
 	for (Animal* animal : animals)
@@ -125,7 +130,7 @@ void Simulation::render() {
 
 		for (auto packageOfFood : foodBasket)
 			packageOfFood->draw(mainWindow);
-
+		this->mainMessage->draw(mainWindow);
 		this->mainWindow->display();
 	}
 

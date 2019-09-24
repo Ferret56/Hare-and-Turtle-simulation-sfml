@@ -7,6 +7,7 @@
 #include "Turtle.h"
 #include "Hare.h"
 #include "PackageOfFood.h"
+#include "Message.h"
 using namespace std;
 /*
 The main class that will run the simulation 
@@ -24,6 +25,8 @@ private:
 	bool                    isTheRaceWin;
 	sf::Clock clock;     
 	float time;
+
+	Message*                 mainMessage;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();
