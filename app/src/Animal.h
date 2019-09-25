@@ -23,7 +23,7 @@ protected:
 	bool                              isAnimalWin;      // current win status
 
 public:
-	Animal(sf::Vector2f position, const std::string path_to_the_file);
+	Animal(sf::Vector2f position, const std::string pathToTheFile);
 	virtual ~Animal();
 	sf::Sprite* getSprite();
 	bool getBonusStatus()const;

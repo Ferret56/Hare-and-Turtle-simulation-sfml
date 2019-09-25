@@ -4,11 +4,11 @@
 * @param  position            animal's position on the track
 * @param  path_to_the_file    is the path to the file where the picture is
 */
-Animal::Animal(sf::Vector2f position, const std::string path_to_the_file) {
+Animal::Animal(sf::Vector2f position, const std::string pathToTheFile) {
 	this->animalTexture = new sf::Texture();
 	this->animalSprite = new sf::Sprite();
 	this->position = position;
-	animalTexture->loadFromFile(path_to_the_file);
+	animalTexture->loadFromFile(pathToTheFile);
 	animalSprite->setTexture(*animalTexture);
 	animalSprite->setPosition(position);	
 	dx = 0;                   // must be redefined in children
