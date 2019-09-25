@@ -26,7 +26,8 @@ private:
 	sf::Clock clock;     
 	float time;
 
-	Message*                 mainMessage;
+	Message*                 titleMessage;
+	Message*                 descriptionMessage;
 public:
 	 Simulation(sf::Vector2u main_window_size,const string full_simulation_name);
 	 ~Simulation();

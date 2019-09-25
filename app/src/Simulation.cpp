@@ -57,8 +57,12 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	};
 	
 	//Generate main text
-	mainMessage = new Message("Hare and Turtle simulation", "app/resources/fonts/TSSSF.otf", 60);
-	mainMessage->setPosition(mainWindow->getPosition().x, mainWindow->getPosition().y + 130);
+	titleMessage = new Message("Hare and Turtle simulation", "app/resources/fonts/TSSSF.otf", 60);
+	titleMessage->setPosition(mainWindow->getPosition().x, mainWindow->getPosition().y + 130);
+
+	//Generate description text
+	descriptionMessage = new Message("Please press SPACE to start the race", "app/resources/fonts/TSSSF.otf", 30);
+	descriptionMessage->setPosition(mainWindow->getPosition().x + 60, mainWindow->getPosition().y + 350);
 }
 
 /*
@@ -67,7 +71,7 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 Simulation::~Simulation() {
 	delete this->mainWindow;
 	delete this->backGround;
-	delete this->mainMessage;
+	delete this->titleMessage;
 	for (Track* track : tracks)
 		delete track;
 	for (Animal* animal : animals)
@@ -130,7 +134,8 @@ void Simulation::render() {
 
 		for (auto packageOfFood : foodBasket)
 			packageOfFood->draw(mainWindow);
-		this->mainMessage->draw(mainWindow);
+		this->titleMessage->draw(mainWindow);
+		this->descriptionMessage->draw(mainWindow);
 		this->mainWindow->display();
 	}
 
