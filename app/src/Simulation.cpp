@@ -145,7 +145,9 @@ void Simulation::render() {
 void Simulation::run() {	
 	while (this->mainWindow->isOpen()) {
 		processEvents();
-		update();
+		// start updating if the simulation has started
+		if(isTheSimulationStart)
+		        update();
 		render();
 	}
 }
