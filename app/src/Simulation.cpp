@@ -58,11 +58,11 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 	
 	//Generate main text
 	titleMessage = new Message("Hare and Turtle simulation", "app/resources/fonts/TSSSF.otf", 60);
-	titleMessage->setPosition(mainWindow->getPosition().x, mainWindow->getPosition().y + 130);
+	titleMessage->setPosition(mainWindow->getPosition().x + 60, mainWindow->getPosition().y + 130);
 
 	//Generate description text
 	descriptionMessage = new Message("Please press 'SPACE' to start the race", "app/resources/fonts/TSSSF.otf", 30);
-	descriptionMessage->setPosition(mainWindow->getPosition().x + 60, mainWindow->getPosition().y + 350);
+	descriptionMessage->setPosition(mainWindow->getPosition().x + 125, mainWindow->getPosition().y + 350);
 }
 
 /*
@@ -145,7 +145,7 @@ void Simulation::render() {
 void Simulation::run() {	
 	while (this->mainWindow->isOpen()) {
 		processEvents();
-		// start updating if the simulation has started
+		//start updating if the simulation has started
 		if(isTheSimulationStart)
 		        update();
 		render();
