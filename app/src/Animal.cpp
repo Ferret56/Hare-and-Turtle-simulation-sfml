@@ -4,7 +4,8 @@
 * @param  position            animal's position on the track
 * @param  path_to_the_file    is the path to the file where the picture is
 */
-Animal::Animal(sf::Vector2f position, const std::string pathToTheFile) {
+Animal::Animal(std::string name,sf::Vector2f position, const std::string pathToTheFile) {
+	this->animalName = name;
 	this->animalTexture = new sf::Texture();
 	this->animalSprite = new sf::Sprite();
 	this->position = position;
@@ -57,6 +58,11 @@ void Animal::increaseCurrentBonusTime(float time) {
 float Animal::getCurrentBonusTime() { return this->currentBonusTime; }
 
 float Animal::getTotalBonusTime() { return this->totalBonusTime; }
+
+std::string Animal::getName() {
+	return this->animalName;
+}
+
 
 
 /*

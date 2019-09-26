@@ -11,6 +11,7 @@ protected:
 	sf::Sprite*                       animalSprite;
 	sf::Texture*                      animalTexture;
 	sf::Vector2f                      position;
+	std::string                       animalName;                // animal's name
 	float                             dx;                       // animal's offset
 	float                             speed;                   // animal's speed
 	float                             animationSpeed;         // animal's animation speed
@@ -23,7 +24,7 @@ protected:
 	bool                              isAnimalWin;      // current win status
 
 public:
-	Animal(sf::Vector2f position, const std::string pathToTheFile);
+	Animal(std::string name,sf::Vector2f position, const std::string pathToTheFile);
 	virtual ~Animal();
 	sf::Sprite* getSprite();
 	bool getBonusStatus()const;
@@ -32,6 +33,7 @@ public:
 	void increaseCurrentBonusTime(float time);
 	float getCurrentBonusTime();
 	float getTotalBonusTime();
+	std::string getName();
 /*
 	* @return a logical expression depending on whethere the animal has eaten food
 	* @return TRUE if the animal ate food.
