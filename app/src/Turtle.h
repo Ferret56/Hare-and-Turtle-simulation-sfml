@@ -8,7 +8,7 @@
 */
 class Turtle : public Animal {
 public:
-	Turtle(sf::Vector2f position, const std::string path_to_the_file);
+	Turtle(std::string name,sf::Vector2f position, const std::string path_to_the_file);
 	~Turtle();
 
 

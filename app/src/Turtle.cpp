@@ -1,7 +1,7 @@
 #include "Turtle.h"
 #define MAX_COUNT_OF_THE_FRAMES 2
 
-Turtle::Turtle(sf::Vector2f position, const std::string path_to_the_file) : Animal(position, path_to_the_file){
+Turtle::Turtle(std::string name,sf::Vector2f position, const std::string path_to_the_file) : Animal(name,position, path_to_the_file){
 	animationSpeed = 0.005;
 	this->animalSprite->setTextureRect(sf::IntRect(0, 0, animalTexture->getSize().x / MAX_COUNT_OF_THE_FRAMES,
 		                                                                      animalTexture->getSize().y));
