@@ -38,7 +38,7 @@ public:
 	* @return a logical expression depending on whethere the animal has eaten food
 	* @return TRUE if the animal ate food.
 	* @param packageOfFood is the all packages of the food in the simulation
-	* WARN! Ñhange architecture. Bad implementation
+	* WARN! Change architecture. Bad implementation
 */
 	bool isEatFood(std::vector<PackageOfFood*>* packageOfFood);
 	bool isWin();
