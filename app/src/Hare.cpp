@@ -3,6 +3,7 @@
 
 Hare::Hare(sf::Vector2f position, const std::string path_to_the_file) : Animal(position, path_to_the_file){
 	animationSpeed = 0.01;
+	this->animalSprite->setTextureRect(sf::IntRect(0, 0, animalTexture->getSize().x / MAX_COUNT_OF_THE_FRAMES, animalTexture->getSize().y));
 }
 Hare::~Hare(){}
 
