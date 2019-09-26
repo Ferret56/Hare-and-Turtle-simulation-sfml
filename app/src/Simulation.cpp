@@ -90,6 +90,8 @@ void Simulation::processEvents() {
 	while (this->mainWindow->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			this->mainWindow->close();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			isTheSimulationStart = true;
 	}
 }
 /*
@@ -134,8 +136,11 @@ void Simulation::render() {
 
 		for (auto packageOfFood : foodBasket)
 			packageOfFood->draw(mainWindow);
-		this->titleMessage->draw(mainWindow);
-		this->descriptionMessage->draw(mainWindow);
+		// draw main messages
+		if (!isTheSimulationStart) {
+			this->titleMessage->draw(mainWindow);
+			this->descriptionMessage->draw(mainWindow);
+		}
 		this->mainWindow->display();
 	}
 
