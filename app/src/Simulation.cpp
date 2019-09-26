@@ -34,11 +34,11 @@ Simulation::Simulation(sf::Vector2u main_window_size, const string full_simulati
 			                                        FLAG_IMAGE_PATH));
 	//Generate animals
 	animals = {
-		new Turtle(sf::Vector2f(tracks[0]->getPosition().x - 10,
+		new Turtle("Turtle",sf::Vector2f(tracks[0]->getPosition().x - 10,
                                tracks[0]->getPosition().y - 10),
                                              TURTLE_IMAGE_PATH),
 
-		new Hare(sf::Vector2f(tracks[1]->getPosition().x - 10,
+		new Hare("Hare",sf::Vector2f(tracks[1]->getPosition().x - 10,
                              tracks[1]->getPosition().y - 20),
                                               HARE_IMAGE_PATH)       
 	};
@@ -101,7 +101,9 @@ void Simulation::update() {
 	for (Animal* animal : animals) {
 		if (animal->getSprite()->getPosition().x >= tracks[0]->getFinishFlag()->getSprite()->getPosition().x) {
 			animal->setWinStatus(true);
-			this->isTheRaceWin = true;
+			this->isTheRaceWin = true;	
+			this->winMessage = new Message(animal->getName() + " " + "win!", "app/resources/fonts/TSSSF.otf", 60);
+			this->winMessage->setPosition(mainWindow->getPosition().x + 180, mainWindow->getPosition().y + 130);
 		}
 
 		if (animal->isEatFood(&this->foodBasket)) {
@@ -141,6 +143,10 @@ void Simulation::render() {
 			this->titleMessage->draw(mainWindow);
 			this->descriptionMessage->draw(mainWindow);
 		}
+		if(isTheRaceWin)
+			this->winMessage->draw(mainWindow);
+
+
 		this->mainWindow->display();
 	}
 
@@ -151,7 +157,7 @@ void Simulation::run() {
 	while (this->mainWindow->isOpen()) {
 		processEvents();
 		//start updating if the simulation has started
-		if(isTheSimulationStart)
+		if(isTheSimulationStart && !isTheRaceWin)
 		        update();
 		render();
 	}
