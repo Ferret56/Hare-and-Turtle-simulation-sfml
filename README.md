@@ -9,3 +9,6 @@ This is a graphical simulation of the famous race between [hare and  turtle](htt
 it gets a bonus and increases its speed for a certain time(the default is 500 milliseconds).
 <br>The winner is the one who first reaches the finish line.
 # Preview
+<br>![](https://github.com/Ferret56/Hare-and-Turtle-simulation-sfml/blob/master/app/resources/preview/HaT_1.png)
+<br>![](https://github.com/Ferret56/Hare-and-Turtle-simulation-sfml/blob/master/app/resources/preview/HaT_2.png)
+<br>![](https://github.com/Ferret56/Hare-and-Turtle-simulation-sfml/blob/master/app/resources/preview/HaT_3.png)
